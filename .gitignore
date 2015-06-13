@@ -2,7 +2,7 @@
 
 Note:
 
-Create file called .env, add twilio keys in following format, save a root:
+Create file called .env, add twilio keys in following format, save at root:
 
 account_sid = ############### 
 auth_token = #################
