@@ -1,1 +1,11 @@
 .env
+
+Note:
+
+Create file called .env, add twilio keys in following format, save a root:
+
+account_sid = ############### 
+auth_token = #################
+twilio_number = +1##########
+
+DOT NOT REMOVE .env FROM TOP OF THIS DOCUMENT

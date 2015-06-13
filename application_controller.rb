@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
     @sender = params[:sender]
     @greeting = "Hey #{@recipient}!, #{@message} - Sent by #{@sender}"
     @gif = Giphy.random(tag=@keyword).image_original_url.to_s
-    binding.pry
+    # binding.pry
 
     @client = Twilio::REST::Client.new account_sid, auth_token 
  
