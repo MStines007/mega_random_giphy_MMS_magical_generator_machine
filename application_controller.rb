@@ -2,7 +2,8 @@ require 'bundler'
 Bundler.require
 require 'twilio-ruby' 
 require 'giphy'
-require 'dotenv'
+require 'open-uri'
+
 
 class ApplicationController < Sinatra::Base
 
