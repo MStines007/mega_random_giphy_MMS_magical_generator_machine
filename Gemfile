@@ -10,5 +10,6 @@ gem 'statsd-ruby'
 gem 'dogapi'
 gem 'dogstatsd-ruby'
 gem 'foreman'
+gem 'puma'
 
 
