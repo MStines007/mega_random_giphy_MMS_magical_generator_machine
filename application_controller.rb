@@ -26,6 +26,8 @@ class ApplicationController < Sinatra::Base
 
     @statsd.increment('web.page_views')
 
+    dog.emit_event(Dogapi::Event.new('App test', :msg_title => 'Level 2 App test'))
+
     # binding.pry
 
 
