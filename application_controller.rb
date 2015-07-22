@@ -3,11 +3,12 @@ Bundler.require
 require 'twilio-ruby' 
 require 'giphy'
 require 'open-uri'
-require 'statsd'
+require 'statsd-ruby'
 require 'dogapi'
 
 
 class ApplicationController < Sinatra::Base
+
 
     # account_sid ||= ENV["account_sid"]
     # auth_token ||= ENV["auth_token"]
@@ -17,7 +18,9 @@ class ApplicationController < Sinatra::Base
     ENV["auth_token"]
     ENV["twilio_number"]
 
-    # statsd = Statsd.new
+    @statsd = Statsd.new
+
+    # binding.pry
 
 
     get '/' do
