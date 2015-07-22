@@ -19,13 +19,15 @@ class ApplicationController < Sinatra::Base
     ENV["twilio_number"]
     ENV["api_key"]
     ENV["app_key"]
-    @dyno_id ||= ENV['DYNO']
+    $dyno_id ||= ENV["DYNO"]
+    # ENV["DYNO"]
 
     dog = Dogapi::Client.new("dd855f1dee243106686bef188eb4de07", "efd90032cdb1516f32261ce2bf25e0866949b868")
     dog.emit_event(Dogapi::Event.new('App test', :msg_title => 'Level 2 App test'))
 
-    @statsd = Statsd.new('localhost', 8125)
-    @statsd.increment('page.views', tags: ['app:example-app', "dyno_id:#{@dyno_id}"])
+    statsd = Statsd.new('localhost', 8125)
+    statsd.increment('page.views')
+    # statsd.increment('page.views', tags: ['app:example-app', "dyno_id:#{$dyno_id}"])
 
     # binding.pry
 
