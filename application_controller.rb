@@ -17,8 +17,14 @@ class ApplicationController < Sinatra::Base
     ENV["account_sid"]
     ENV["auth_token"]
     ENV["twilio_number"]
+    ENV["api_key"]
+    ENV["app_key"]
+
+    dog = Dogapi::Client.new(api_key, app_key)
 
     @statsd = Statsd.new
+
+    @statsd.increment('web.page_views')
 
     # binding.pry
 
