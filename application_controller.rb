@@ -20,16 +20,13 @@ class ApplicationController < Sinatra::Base
     ENV["api_key"]
     ENV["app_key"]
 
-    dog = Dogapi::Client.new(api_key, app_key)
-
-    @statsd = Statsd.new
-
-    @statsd.increment('web.page_views')
-
+    dog = Dogapi::Client.new("dd855f1dee243106686bef188eb4de07", "efd90032cdb1516f32261ce2bf25e0866949b868")
     dog.emit_event(Dogapi::Event.new('App test', :msg_title => 'Level 2 App test'))
 
-    # binding.pry
+    @statsd = Statsd.new('localhost', 8125)
+    @statsd.increment('web.page_views')
 
+    # binding.pry
 
     get '/' do
         erb :index
